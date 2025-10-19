@@ -27,6 +27,15 @@ async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
+
+    app.post('/users', async(req, res) => {
+       const user = req.body;
+       console.log('new user', user)
+    });
+
+
+
+
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
@@ -43,5 +52,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`simple crud is running on port ${port}`)
+    console.log(`Simple crud server is running on port ${port}`)
 })
