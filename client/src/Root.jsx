@@ -22,6 +22,10 @@ function Root() {
       .then(res => res.json())
       .then(data => {
         console.log(data);
+        if(data.insertedId){
+          alert('User added successfully');
+          form.reset();
+        }
 
       })
   }
@@ -34,8 +38,8 @@ function Root() {
         <form onSubmit={handleAddUser} className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
           <legend className="fieldset-legend">Login</legend>
 
-          <input type="text" name='name' className="input" placeholder="Email" />
-          <input type="email" name='email' className="input" placeholder="Password" />
+          <input type="text" name='name' className="input" placeholder="Name" />
+          <input type="email" name='email' className="input" placeholder="E-mail" />
           <input type="submit" value="Add User" className="w-full border-1 p-1 rounded-lg hover:cursor-pointer font-bold text-lg" />
 
         </form>
